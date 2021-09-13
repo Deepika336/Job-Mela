@@ -1,0 +1,106 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">Upload Your Resume</h1>
+    <div class="col-6 offset-3">
+        <form action="/candidates" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="candidate[name]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="gender">Gender</label>
+                <input class="form-control" type="text" id="gender" name="candidate[gender]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="nationality">Nationality</label>
+                <input class="form-control" type="text" id="nationality" name="candidate[nationality]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="candidate[email]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="phone">Contact number</label>
+                <input class="form-control" type="number" id="phone" name="candidate[phone]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+
+            
+            <input type="file" name="image" id="" multiple>
+
+           
+
+            <div class="mb-3">
+                <label class="form-label" for="objective">Career Objective</label>
+                <textarea class="form-control" type="text" id="objective" name="candidate[objective]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="skills">Skills</label>
+                <textarea class="form-control" type="text" id="skills" name="candidate[skills]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="qualification">Academic Qualification</label>
+                <input class="form-control" type="text" id="qualification" name="candidate[qualification]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="percentage">%/CGPA</label>
+                <input class="form-control" type="number" id="percentage" name="candidate[percentage]" required>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="experience">Professional Experience</label>
+                <textarea class="form-control" type="text" id="experience" name="candidate[experience]" required ></textarea>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="projects">Major Projects</label>
+                <textarea class="form-control" type="text" id="projects" name="candidate[projects]" required ></textarea>
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">Add Resume</button>
+            </div>
+        </form>
+        <a href="/candidates">All Candidates</a>
+    </div>
+</div>    
+

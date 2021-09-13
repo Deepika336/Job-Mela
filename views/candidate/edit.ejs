@@ -1,0 +1,137 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">Edit Your Resume</h1>
+    <div class="col-6 offset-3">
+        <form action="/candidates/<%=candidate._id%>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data"> 
+            <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" type="text" id="name" name="candidate[name]"
+                    value="<%=candidate.name %>">
+                    <div class="valid-feedback">
+                        Looks good
+                    </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="gender">Gender</label>
+                <input class="form-control" type="text" id="gender" name="candidate[gender]"
+                value="<%=candidate.gender %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="nationality">Nationality</label>
+                <input class="form-control" type="text" id="nationality" name="candidate[nationality]"
+                value="<%=candidate.nationality %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="candidate[email]" 
+                value="<%=candidate.email %>">
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="phone">Contact number</label>
+                <input class="form-control" type="number" id="phone" name="candidate[phone]" 
+                value="<%=candidate.phone %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="objective">Objective</label>
+                <input class="form-control" type="text" id="objective" name="candidate[objective]" 
+                value="<%=candidate.objective %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="skills">Skills</label>
+                <input class="form-control" type="text" id="skills" name="candidate[skills]" 
+                value="<%=candidate.skills %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="qualification">Qualification</label>
+                <input class="form-control" type="text" id="qualification" name="candidate[qualification]" 
+                value="<%=candidate.qualification %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="percentage">Percentage/CGPA</label>
+                <input class="form-control" type="number" id="percentage" name="candidate[percentage]" 
+                value="<%=candidate.percentage %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label" for="experience">Professional Experience</label>
+                <input class="form-control" type="text" id="experience" name="candidate[experience]" 
+                value="<%=candidate.experience %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="projects">Major Projects</label>
+                <input class="form-control" type="text" id="projects" name="candidate[projects]" 
+                value="<%=candidate.projects %>">
+                <div class="valid-feedback">
+                    Looks good
+                </div>
+            </div>
+
+
+
+
+            <div class="mb-3">
+                <div class="form-file custom-file">
+                    <input type="file" class="form-file-input" id="image" name="image" multiple>
+                    <label class="form-file-label" for="image">
+                        <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <% candidate.images.forEach(function(img, i) {  %>
+                <img src="<%=img.url %>" class="img-thumbnail" alt="">
+                <div class="form-check-inline">
+                    <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                </div>
+                <label for="image-<%=i%>">Delete?</label>
+                <% })%>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-info">Update Resume</button>
+            </div>
+        </form>
+        <a href="/candidates/<%= candidate._id%>">Back To Candidate</a>
+
+    </div>
+</div>

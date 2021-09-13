@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') %> 
+
+<header class="jumbatron">
+    <div class="container">
+    <h1>All Candidates</h1>
+    
+    <div>
+        <a href="/candidates/new">Add Resume</a>
+    </div>
+
+    <p>
+        <form action="/candidates" method="GET" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="search" placeholder="Candidate search" class="form-control">
+                <input type="submit" value="Search" class="btn btn-default">
+            </div>
+        </form>
+    </p>
+
+</div>
+</header>
+
+<div class="col-md-12">
+    <%  if(noMatch != null) { %> 
+        <h3> <%= noMatch %> </h3>
+        
+    <% } %> 
+</div>
+
+
+
+
+    <% for (let candidate of candidates){%>
+        
+    <div class="card mb-3" >
+        <div class="row">
+            <div class="col-md-2">
+                <img class="img-responsive" width = "100%" alt="" src="<%= candidate.images[0].url %>"  >
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= candidate.name %> </h5>
+                    <p class="card-text"><%= candidate.objective %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= candidate.qualification%></small>
+                    </p>
+                    <a class="btn btn-primary" href="/candidates/<%=candidate._id%>">View <%=candidate.name%></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }%>   
